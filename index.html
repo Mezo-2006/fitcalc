@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>FitCalc — Know what your body needs</title>
+  <meta name="description" content="Calculate your daily calories, macros, and get a personalized home workout plan in seconds. No account. No signup. Your data stays on your device.">
+  <meta name="theme-color" content="#080b10">
+  <meta property="og:title" content="FitCalc — Know what your body needs">
+  <meta property="og:description" content="Daily calories, macros and home workouts in seconds. Private, free, no signup.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#calculator">Skip to calculator</a>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="FitCalc — back to top">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M7 16h3m12 0h3M10 11v10m12-10v10M13 16h6" stroke="#0b1200" stroke-width="2.6" stroke-linecap="round"/></svg>
+        <span>FIT<b>CALC</b></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <a href="#home" data-nav="home">Home</a>
+        <a href="#calculator" data-nav="calculator">Calculator</a>
+        <a href="#results" data-nav="results">Results</a>
+        <a href="#workouts" data-nav="workouts">Workouts</a>
+        <a href="#tips" data-nav="tips">Tips</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Calories · Macros · Workouts</p>
+          <h1 id="hero-title"><span class="hero-word">FITCALC</span><span class="hero-tag">Know what your body needs.</span></h1>
+          <p class="hero-sub">Calculate your daily calories, macros, and get a personalized workout plan in seconds.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary btn-lg" href="#calculator" id="cta-calc">Calculate My Needs <span class="arrow" aria-hidden="true">→</span></a>
+            <p class="fineprint">No account. No signup. Your data stays on your device.</p>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 400 400" class="hero-svg" focusable="false">
+            <defs>
+              <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e4ff7a"/><stop offset="1" stop-color="#8fe000"/></linearGradient>
+              <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#c8ff3a" stop-opacity=".28"/><stop offset="1" stop-color="#c8ff3a" stop-opacity="0"/></radialGradient>
+            </defs>
+            <circle cx="200" cy="200" r="190" fill="url(#glow)"/>
+            <circle class="ring r1" cx="200" cy="200" r="172" fill="none" stroke="#ffffff" stroke-opacity=".10" stroke-width="2" stroke-dasharray="4 10"/>
+            <circle class="ring r2" cx="200" cy="200" r="138" fill="none" stroke="#ff7a45" stroke-opacity=".75" stroke-width="10" stroke-linecap="round" stroke-dasharray="230 640"/>
+            <circle class="ring r3" cx="200" cy="200" r="108" fill="none" stroke="#3fd8c3" stroke-opacity=".75" stroke-width="10" stroke-linecap="round" stroke-dasharray="150 530"/>
+            <circle class="ring r4" cx="200" cy="200" r="78" fill="none" stroke="#c8ff3a" stroke-opacity=".9" stroke-width="10" stroke-linecap="round" stroke-dasharray="110 380"/>
+            <g class="dumbbell" transform="rotate(-24 200 200)">
+              <rect x="120" y="194" width="160" height="12" rx="6" fill="#dfe6ef"/>
+              <rect x="104" y="166" width="20" height="68" rx="7" fill="url(#hg)"/>
+              <rect x="126" y="176" width="14" height="48" rx="6" fill="url(#hg)" opacity=".8"/>
+              <rect x="276" y="166" width="20" height="68" rx="7" fill="url(#hg)"/>
+              <rect x="260" y="176" width="14" height="48" rx="6" fill="url(#hg)" opacity=".8"/>
+            </g>
+            <polyline class="pulse" points="20,338 110,338 132,308 158,364 182,326 204,338 380,338" fill="none" stroke="#c8ff3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <a class="scroll-hint" href="#calculator" aria-label="Scroll to calculator"><span></span></a>
+    </section>
+
+    <!-- ============ CALCULATOR ============ -->
+    <section class="section" id="calculator" aria-labelledby="calc-title">
+      <div class="container narrow">
+        <header class="section-head">
+          <p class="eyebrow">Step by step · under a minute</p>
+          <h2 id="calc-title">Your <span class="accent">calculator</span></h2>
+        </header>
+
+        <form class="card form-card" id="calc-form" novalidate autocomplete="off">
+          <div class="progress" aria-hidden="false">
+            <div class="progress-meta"><span id="step-label">Step 1 of 3</span><span id="step-name">About you</span></div>
+            <div class="progress-track" role="progressbar" aria-label="Form progress" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1" id="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+          </div>
+
+          <!-- Step 1 -->
+          <fieldset class="step" data-step="1">
+            <legend tabindex="-1">About you</legend>
+
+            <div class="field">
+              <span class="label" id="sex-label">Sex <small>Used only in the BMR formula</small></span>
+              <div class="chips chips-2" role="radiogroup" aria-labelledby="sex-label" aria-describedby="err-sex">
+                <label class="chip"><input type="radio" name="sex" value="male"><span>Male</span></label>
+                <label class="chip"><input type="radio" name="sex" value="female"><span>Female</span></label>
+              </div>
+              <p class="field-error" id="err-sex"></p>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label class="label" for="age">Age</label>
+                <div class="input-wrap"><input id="age" name="age" type="text" inputmode="numeric" maxlength="3" placeholder="25" aria-describedby="err-age"><span class="unit">years</span></div>
+                <p class="field-error" id="err-age"></p>
+              </div>
+              <div class="field">
+                <label class="label" for="height">Height</label>
+                <div class="input-wrap"><input id="height" name="height" type="text" inputmode="decimal" maxlength="5" placeholder="175" aria-describedby="err-height"><span class="unit">cm</span></div>
+                <p class="field-error" id="err-height"></p>
+              </div>
+              <div class="field">
+                <label class="label" for="weight">Weight</label>
+                <div class="input-wrap"><input id="weight" name="weight" type="text" inputmode="decimal" maxlength="5" placeholder="72" aria-describedby="err-weight"><span class="unit">kg</span></div>
+                <p class="field-error" id="err-weight"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Step 2 -->
+          <fieldset class="step" data-step="2" hidden>
+            <legend tabindex="-1">Activity</legend>
+
+            <div class="field">
+              <span class="label" id="days-label">How many days do you exercise per week?</span>
+              <div class="chips chips-5" role="radiogroup" aria-labelledby="days-label" aria-describedby="err-days">
+                <label class="chip"><input type="radio" name="days" value="0"><span>0</span></label>
+                <label class="chip"><input type="radio" name="days" value="1-2"><span>1–2</span></label>
+                <label class="chip"><input type="radio" name="days" value="3-4"><span>3–4</span></label>
+                <label class="chip"><input type="radio" name="days" value="5-6"><span>5–6</span></label>
+                <label class="chip"><input type="radio" name="days" value="7"><span>7</span></label>
+              </div>
+              <p class="field-error" id="err-days"></p>
+            </div>
+
+            <div class="field">
+              <span class="label" id="level-label">General activity level <small>Think of a typical day, including work</small></span>
+              <div class="options" role="radiogroup" aria-labelledby="level-label" aria-describedby="err-level">
+                <label class="option"><input type="radio" name="level" value="sedentary"><span class="option-body"><b>Sedentary</b><small>Mostly sitting — desk job, little walking</small></span></label>
+                <label class="option"><input type="radio" name="level" value="light"><span class="option-body"><b>Lightly Active</b><small>Some walking or standing through the day</small></span></label>
+                <label class="option"><input type="radio" name="level" value="moderate"><span class="option-body"><b>Moderately Active</b><small>On the move often — active job or daily walks</small></span></label>
+                <label class="option"><input type="radio" name="level" value="very"><span class="option-body"><b>Very Active</b><small>Physical job or very active days</small></span></label>
+                <label class="option"><input type="radio" name="level" value="extreme"><span class="option-body"><b>Extremely Active</b><small>Heavy labour or athlete-level training</small></span></label>
+              </div>
+              <p class="field-error" id="err-level"></p>
+            </div>
+          </fieldset>
+
+          <!-- Step 3 -->
+          <fieldset class="step" data-step="3" hidden>
+            <legend tabindex="-1">Your goal</legend>
+            <div class="field">
+              <span class="label" id="goal-label">What do you want to do?</span>
+              <div class="options" role="radiogroup" aria-labelledby="goal-label" aria-describedby="err-goal">
+                <label class="option"><input type="radio" name="goal" value="lose-moderate"><span class="option-body"><b>Lose Fat <em>Moderate</em></b><small>About 15% below maintenance — steady and sustainable</small></span></label>
+                <label class="option"><input type="radio" name="goal" value="lose-aggressive"><span class="option-body"><b>Lose Fat <em>Aggressive</em></b><small>About 20% below maintenance — faster, needs more discipline</small></span></label>
+                <label class="option"><input type="radio" name="goal" value="maintain"><span class="option-body"><b>Maintain Weight</b><small>Eat around your maintenance level</small></span></label>
+                <label class="option"><input type="radio" name="goal" value="lean-gain"><span class="option-body"><b>Lean Gain</b><small>About 5% above maintenance — minimal fat gain</small></span></label>
+                <label class="option"><input type="radio" name="goal" value="build"><span class="option-body"><b>Build Muscle</b><small>About 10% above maintenance — faster growth</small></span></label>
+              </div>
+              <p class="field-error" id="err-goal"></p>
+            </div>
+          </fieldset>
+
+          <div class="form-nav">
+            <button type="button" class="btn btn-ghost" id="btn-back" hidden>← Back</button>
+            <button type="submit" class="btn btn-primary" id="btn-next">Next <span class="arrow" aria-hidden="true">→</span></button>
+          </div>
+          <div class="form-foot">
+            <button type="button" class="link-btn" id="btn-reset">Reset form</button>
+            <span class="privacy-note">🔒 Everything runs in your browser.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section class="section" id="results" aria-labelledby="results-title" tabindex="-1">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Your numbers</p>
+          <h2 id="results-title">Your daily <span class="accent">target</span></h2>
+        </header>
+
+        <div class="card empty-card" id="results-empty">
+          <div class="empty-icon" aria-hidden="true">📊</div>
+          <h3>No results yet</h3>
+          <p>Fill in the calculator above and your calorie and macro targets will appear here.</p>
+          <a class="btn btn-primary" href="#calculator">Go to calculator</a>
+        </div>
+
+        <div id="results-content" hidden>
+          <div class="dash-top">
+            <div class="card target-card">
+              <p class="card-kicker">YOUR DAILY TARGET</p>
+              <div class="ring-wrap">
+                <svg viewBox="0 0 120 120" class="donut" role="img" id="donut" aria-label="Calorie split between protein, carbs and fat">
+                  <circle class="donut-track" cx="60" cy="60" r="52" fill="none" stroke-width="10"/>
+                  <circle class="donut-seg" id="seg-protein" cx="60" cy="60" r="52" fill="none" stroke-width="10" stroke-linecap="butt"/>
+                  <circle class="donut-seg" id="seg-carbs" cx="60" cy="60" r="52" fill="none" stroke-width="10" stroke-linecap="butt"/>
+                  <circle class="donut-seg" id="seg-fat" cx="60" cy="60" r="52" fill="none" stroke-width="10" stroke-linecap="butt"/>
+                </svg>
+                <div class="ring-center">
+                  <span class="ring-flame" aria-hidden="true">🔥</span>
+                  <span class="ring-num" id="res-kcal">0</span>
+                  <span class="ring-unit">kcal / day</span>
+                </div>
+              </div>
+              <p class="goal-chip" id="res-goal"></p>
+            </div>
+
+            <div class="card summary-card">
+              <p class="card-kicker">YOUR SUMMARY</p>
+              <p class="summary-text" id="res-summary"></p>
+              <ul class="notes" id="res-notes"></ul>
+              <p class="disclaimer">These numbers are estimates based on standard formulas. Individual needs can vary.</p>
+            </div>
+          </div>
+
+          <div class="macro-grid" id="macro-grid">
+            <article class="card macro macro-protein">
+              <div class="macro-head"><span aria-hidden="true">🥩</span><h3>Protein</h3></div>
+              <p class="macro-val"><span id="res-protein">0</span><small>g</small></p>
+              <div class="bar" role="img" id="bar-protein-wrap"><div class="bar-fill" id="bar-protein"></div></div>
+              <p class="macro-meta" id="meta-protein"></p>
+            </article>
+            <article class="card macro macro-carbs">
+              <div class="macro-head"><span aria-hidden="true">🍚</span><h3>Carbs</h3></div>
+              <p class="macro-val"><span id="res-carbs">0</span><small>g</small></p>
+              <div class="bar" role="img" id="bar-carbs-wrap"><div class="bar-fill" id="bar-carbs"></div></div>
+              <p class="macro-meta" id="meta-carbs"></p>
+            </article>
+            <article class="card macro macro-fat">
+              <div class="macro-head"><span aria-hidden="true">🥑</span><h3>Fat</h3></div>
+              <p class="macro-val"><span id="res-fat">0</span><small>g</small></p>
+              <div class="bar" role="img" id="bar-fat-wrap"><div class="bar-fill" id="bar-fat"></div></div>
+              <p class="macro-meta" id="meta-fat"></p>
+            </article>
+          </div>
+
+          <div class="stat-grid">
+            <div class="card stat"><p class="stat-label">BMR</p><p class="stat-val"><span id="res-bmr">–</span> <small>kcal</small></p><p class="stat-note">Energy at complete rest</p></div>
+            <div class="card stat"><p class="stat-label">TDEE</p><p class="stat-val"><span id="res-tdee">–</span> <small>kcal</small></p><p class="stat-note">Maintenance incl. activity</p></div>
+            <div class="card stat"><p class="stat-label">BMI</p><p class="stat-val"><span id="res-bmi">–</span></p><p class="stat-note" id="res-bmi-cat"></p></div>
+            <div class="card stat"><p class="stat-label">Water</p><p class="stat-val"><span id="res-water">–</span> <small>L / day</small></p><p class="stat-note" id="res-water-note"></p></div>
+            <div class="card stat"><p class="stat-label">Steps</p><p class="stat-val"><span id="res-steps">–</span> <small>/ day</small></p><p class="stat-note">Suggested daily target</p></div>
+          </div>
+
+          <div class="results-actions">
+            <button type="button" class="btn btn-ghost" id="btn-recalc">↻ Recalculate</button>
+            <a class="btn btn-primary" href="#workouts">See home workouts <span class="arrow" aria-hidden="true">→</span></a>
+            <button type="button" class="link-btn" id="btn-clear-results">Clear My Data</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORKOUTS ============ -->
+    <section class="section" id="workouts" aria-labelledby="workouts-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">No equipment needed</p>
+          <h2 id="workouts-title">HOME <span class="accent">WORKOUTS</span></h2>
+        </header>
+
+        <div class="picker">
+          <div class="picker-group">
+            <span class="label" id="lvl-label">Level</span>
+            <div class="seg" role="radiogroup" aria-labelledby="lvl-label" id="pick-level">
+              <label class="seg-item"><input type="radio" name="w-level" value="beginner" checked><span>Beginner</span></label>
+              <label class="seg-item"><input type="radio" name="w-level" value="intermediate"><span>Intermediate</span></label>
+              <label class="seg-item"><input type="radio" name="w-level" value="advanced"><span>Advanced</span></label>
+            </div>
+          </div>
+          <div class="picker-group">
+            <span class="label" id="type-label">Workout type</span>
+            <div class="seg seg-wrap" role="radiogroup" aria-labelledby="type-label" id="pick-type">
+              <label class="seg-item"><input type="radio" name="w-type" value="full" checked><span>Full Body</span></label>
+              <label class="seg-item"><input type="radio" name="w-type" value="upper"><span>Upper Body</span></label>
+              <label class="seg-item"><input type="radio" name="w-type" value="lower"><span>Lower Body</span></label>
+              <label class="seg-item"><input type="radio" name="w-type" value="core"><span>Core</span></label>
+              <label class="seg-item"><input type="radio" name="w-type" value="quick"><span>Quick 10-Min</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="workout-head card">
+          <div>
+            <p class="card-kicker" id="w-kicker">FULL BODY · BEGINNER</p>
+            <h3 id="w-title">Full Body</h3>
+            <p class="w-meta" id="w-meta"></p>
+          </div>
+          <button type="button" class="btn btn-primary btn-lg" id="btn-start-workout">▶ Start Workout</button>
+        </div>
+
+        <div class="exercise-grid" id="exercise-grid" aria-live="polite"></div>
+
+        <p class="safety">⚠️ Stop if you experience pain or unusual symptoms. Warm up for a few minutes first, and check with a qualified professional if you have any health concerns.</p>
+      </div>
+    </section>
+
+    <!-- ============ TIPS ============ -->
+    <section class="section" id="tips" aria-labelledby="tips-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Small habits, big results</p>
+          <h2 id="tips-title">Fitness <span class="accent">tips</span></h2>
+        </header>
+        <div class="tips-grid">
+          <article class="card tip"><span class="tip-num" aria-hidden="true">01</span><h3>Protein</h3><p>Spread your protein intake throughout the day.</p></article>
+          <article class="card tip"><span class="tip-num" aria-hidden="true">02</span><h3>Sleep</h3><p>Aim for consistent, sufficient sleep.</p></article>
+          <article class="card tip"><span class="tip-num" aria-hidden="true">03</span><h3>Hydration</h3><p>Drink regularly throughout the day and adjust for heat and exercise.</p></article>
+          <article class="card tip"><span class="tip-num" aria-hidden="true">04</span><h3>Steps</h3><p>Daily movement matters even outside the gym.</p></article>
+          <article class="card tip"><span class="tip-num" aria-hidden="true">05</span><h3>Progressive Overload</h3><p>Gradually increase reps, resistance, or difficulty over time.</p></article>
+          <article class="card tip"><span class="tip-num" aria-hidden="true">06</span><h3>Consistency</h3><p>Consistency matters more than perfection.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-tag">Scan. Calculate. Get moving.</p>
+      <p class="footer-small">FitCalc gives general estimates, not medical advice. Talk to a qualified professional before starting a new diet or exercise programme. Your data never leaves your device.</p>
+      <button type="button" class="link-btn" id="btn-clear-footer">Clear My Data</button>
+    </div>
+  </footer>
+
+  <!-- ============ OVERLAYS ============ -->
+  <div class="loader" id="loader" hidden role="status" aria-live="polite">
+    <div class="loader-box">
+      <div class="loader-ring" aria-hidden="true"></div>
+      <p id="loader-text">Crunching your numbers…</p>
+    </div>
+  </div>
+
+  <div class="timer" id="timer" hidden role="dialog" aria-modal="true" aria-labelledby="timer-title">
+    <div class="timer-box">
+      <div class="timer-top">
+        <p class="card-kicker" id="timer-phase">WORK</p>
+        <button type="button" class="link-btn" id="timer-close">End workout ✕</button>
+      </div>
+      <h2 id="timer-title">Get ready</h2>
+      <p class="timer-set" id="timer-set"></p>
+      <div class="timer-clock" id="timer-clock" aria-live="off">0</div>
+      <p class="timer-desc" id="timer-desc"></p>
+      <div class="progress-track"><div class="progress-fill" id="timer-progress"></div></div>
+      <p class="timer-next" id="timer-next"></p>
+      <div class="timer-actions">
+        <button type="button" class="btn btn-primary btn-lg" id="timer-main">Pause</button>
+        <button type="button" class="btn btn-ghost" id="timer-skip">Skip →</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <noscript><p class="noscript">FitCalc needs JavaScript to run its calculations. Everything happens in your browser — nothing is sent anywhere.</p></noscript>
+  <script src="script.js"></script>
+</body>
+</html>
